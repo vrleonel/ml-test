@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="store">
+<head>
+    <title>My Angular App</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/dist/ui/ui-theme.css">
+    <link rel="stylesheet" type="text/css" href="/dist/ui/chico.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="app-angular.js"></script>
+</head>
+<body ng-controller="StoreController as store">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="product in store.products | orderBy:'+price' ">
+            <h3>
+                {{ product.name }}
+                <em class="pull-right">{{ product.price | currency}}</em>
+            </h3>
+            <img ng-src="{{ product.images[0].thumb }}" alt="image">
+
+            <section ng-controller="PanelController as panel">
+                <ul class="nav nav-pills" >
+                    <li ng-class="{ active:panel.isSelected(1) }">
+                        <a href ng-click="panel.selectTab(1)">Description</a>
+                    </li>
+                    <li ng-class="{ active:panel.isSelected(2) }">
+                        <a href ng-click="panel.selectTab(2)">Specification</a>
+                    </li>
+                    <li ng-class="{ active:panel.isSelected(3) }">
+                        <a href ng-click="panel.selectTab(3)">Reviews</a>
+                    </li>
+                </ul>
+                <div class="panel" ng-show="panel.isSelected(1)">
+                    <h4>Description</h4>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="panel" ng-show="panel.isSelected(2)">
+                    <h4>Specification</h4>
+                    <p>None yet</p>
+                </div>
+                <div class="panel" ng-show="panel.isSelected(3)">
+                    <h4>Reviews</h4>
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b>Stars {{ review.stars }} </b>
+                        {{ review.body }}
+                        <cite>- {{ review.author }}</cite>
+                    </blockquote>
+
+                    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+                        <blockquote >
+                            <b>Stars {{ reviewCtrl.review.stars }} </b>
+                            {{ reviewCtrl.review.body }}
+                            <cite>- {{ reviewCtrl.review.author }}</cite>
+                        </blockquote>
+
+                        <fieldset class="form-group">
+                            <select id="sltRate" name="sltRate" ng-model="reviewCtrl.review.stars" required>
+                                <option value="1">1 star</option>
+                                <option value="2">2 star</option>
+                                <option value="3">3 star</option>
+                                <option value="4">4 star</option>
+                                <option value="5">5 star</option>
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <textarea ng-model="reviewCtrl.review.body" required></textarea>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <input type="email" ng-model="reviewCtrl.review.author" placeholder="exemple@mail.com" required />
+                        </fieldset>
+                        <!--<fieldset class="form-group">
+                            <input ng-model="reviewCtrl.review.color" type="radio" value="red"> Red
+                            <input ng-model="reviewCtrl.review.color" type="radio" value="blue"> Blue
+                            <input ng-model="reviewCtrl.review.color" type="radio" value="Green"> Green
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input ng-model="reviewCtrl.review.terms" type="checkbox"> I agree with terms
+                        </fieldset>-->
+                        <div> reviewForm is {{ reviewForm.$valid }}</div>
+                        <fieldset class="form-group">
+                            <input type="submit" value="Submit" class="btn btn-default" >
+                        </fieldset>
+                    </form>
+                </div>
+
+            </section>
+
+
+
+            <button ng-hide="product.soldOut"> Add to cart</button>
+        </li>
+    </ul>
+</body>
+</html>
