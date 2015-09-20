@@ -12,6 +12,10 @@
             {
                 full:  'static/img/city-full-1.jpeg',
                 thumb: 'static/img/city-thumb-1.jpeg',
+            },
+            {
+                full:  'static/img/city-full-2.jpeg',
+                thumb: 'static/img/city-thumb-2.jpeg',
             }
         ],
         reviews: [
@@ -29,7 +33,7 @@
     },
     {
         id: 2,
-        name: 'Pentagon Gem',
+        name: 'iPad Mini Apple 16Gb Wifi Led',
         price: 5.95,
         description: 'lorem ipsum',
         soldOut: false,
@@ -37,6 +41,10 @@
             {
                 full:  'static/img/city-full-2.jpeg',
                 thumb: 'static/img/city-thumb-2.jpeg',
+            },
+            {
+                full:  'static/img/city-full-1.jpeg',
+                thumb: 'static/img/city-thumb-1.jpeg',
             }
         ],
         reviews: [
