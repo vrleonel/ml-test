@@ -1,3 +1,12 @@
+# ml-test
+1. Follow Chico-Ui steps to install enviroment
+2. Once installed, server up with:
+
+            $ grunt dev
+3. Access:
+            [http://localhost:3040/index.html](http://localhost:3040/index.html)
+
+
 # Chico UI  ![Get things done, quickly.](http://isitmaintained.com/badge/resolution/mercadolibre/chico.svg "Get things done, quickly.")
 
 Chico UI is a free and open source collection of easy-to-use UI components for designers and developers.
@@ -215,6 +224,3 @@ This will open `http://localhost:3040/tests/` in your browser. Navigate to `http
 Licensed under the MIT license.
 
 Copyright (c) 2014 [MercadoLibre](http://github.com/mercadolibre).
-
-# ml-test
-ml-test
