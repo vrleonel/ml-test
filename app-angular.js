@@ -4,8 +4,8 @@
     var gems = [
     {
         id: 1,
-        name: 'Dedecahedron',
-        price: 6,
+        name: 'TV Led 42\" Samsung ',
+        price: 2000,
         description: 'lorem ipsum',
         soldOut: true,
         images: [
@@ -21,20 +21,20 @@
         reviews: [
             {
                 stars: 5,
-                body: "Ótimo produto",
-                author: "vitor@leonel.com",
+                body: "Awesome Product",
+                author: "Buyer 1",
             },
             {
                 stars: 1,
-                body: "Que merda",
-                author: "leonel@vitor.com",
+                body: "I don't relly like it",
+                author: "Buyer 2",
             },
         ]
     },
     {
         id: 2,
         name: 'iPad Mini Apple 16Gb Wifi Led',
-        price: 5.95,
+        price: 1699.95,
         description: 'lorem ipsum',
         soldOut: false,
         images: [
@@ -48,7 +48,16 @@
             }
         ],
         reviews: [
-
+            {
+                stars: 5,
+                body: "Do you have this one in white?",
+                author: "Buyer",
+            },
+            {
+                stars: 1,
+                body: "No I don't, I only have black",
+                author: "Seller",
+            },
         ]
     }
     ];

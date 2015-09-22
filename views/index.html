@@ -11,118 +11,133 @@
 </head>
 <body ng-controller="StoreController as store">
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="product in store.products | orderBy:'+price' ">
-      <form action="#">
-        <h2>
-            {{ product.name }}
-        </h2>
+    <li class="list-group-item ch-box" ng-repeat="product in store.products | orderBy:'+price' ">
+      <h2>{{ product.name }}</h2>
 
-        <picture>
-          <img ng-src="{{ product.images[0].full }}" width="350" alt="image">
-        </picture>
+      <picture>
+        <img ng-src="{{ product.images[0].full }}" width="350" alt="image">
+      </picture>
 
-
-        <aside class="">
-
-          <em class="pull-right">{{ product.price | currency}}</em>
-
-          <p>
-            <label for="sltQtd">Quantity</label>
-            <select class="" id="sltQtd" name="sltQtd">
-              <option value="1">1</option>
-            </select>
-          </p>
-          <p>
-            <label for="sltPay">Payments</label>
-            <select class="" id="sltPay" name="sltPay">
-              <option value="1">1</option>
-            </select>
-          </p>
-
-          <button ng-hide="product.soldOut" class="ch-btn"> Buy</button>
+      <aside class="">
+        <form action="#" class="ch-form myForm">
+          <div class="ch-form-row">
+            <h3>{{ product.price | currency}}</h3>
+          </div>
+          <fieldset>
 
 
-          <ul ng-repeat="image in  product.images ">
-            <li>
-              <a href ng-click="" ><img ng-src="{{ image.thumb }}" alt="image" width="100"></a>
-            </li>
-          </ul>
-
-
-        </aside>
-
-
-        <section ng-controller="PanelController as panel" class="ch-tabs">
-            <ul class="ch-tabs-triggers" >
-                <li ng-class="{ active:panel.isSelected(1) }">
-                    <a href ng-click="panel.selectTab(1)" class="ch-tab">Description</a>
-                </li>
-                <li ng-class="{ active:panel.isSelected(2) }">
-                    <a href ng-click="panel.selectTab(2)" class="ch-tab">Specification</a>
-                </li>
-                <li ng-class="{ active:panel.isSelected(3) }">
-                    <a href ng-click="panel.selectTab(3)" class="ch-tab">Reviews</a>
-                </li>
-            </ul>
-            <div class="ch-box-lite">
-              <div class="panel" ng-show="panel.isSelected(1)">
-                  <h4>Description</h4>
-                  <p>{{ product.description }}</p>
-              </div>
-              <div class="panel" ng-show="panel.isSelected(2)">
-                  <h4>Specification</h4>
-                  <p>None yet</p>
-              </div>
-              <div class="panel" ng-show="panel.isSelected(3)">
-                  <h4>Reviews</h4>
-                  <blockquote ng-repeat="review in product.reviews">
-                      <b>Stars {{ review.stars }} </b>
-                      {{ review.body }}
-                      <cite>- {{ review.author }}</cite>
-                  </blockquote>
-
-                  <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-                      <blockquote >
-                          <b>Stars {{ reviewCtrl.review.stars }} </b>
-                          {{ reviewCtrl.review.body }}
-                          <cite>- {{ reviewCtrl.review.author }}</cite>
-                      </blockquote>
-
-                      <fieldset class="form-group">
-                          <select id="sltRate" name="sltRate" ng-model="reviewCtrl.review.stars" required>
-                              <option value="1">1 star</option>
-                              <option value="2">2 star</option>
-                              <option value="3">3 star</option>
-                              <option value="4">4 star</option>
-                              <option value="5">5 star</option>
-                          </select>
-                      </fieldset>
-
-                      <fieldset class="form-group">
-                          <textarea ng-model="reviewCtrl.review.body" required></textarea>
-                      </fieldset>
-
-                      <fieldset class="form-group">
-                          <input type="email" ng-model="reviewCtrl.review.author" placeholder="exemple@mail.com" required />
-                      </fieldset>
-                      <!--<fieldset class="form-group">
-                          <input ng-model="reviewCtrl.review.color" type="radio" value="red"> Red
-                          <input ng-model="reviewCtrl.review.color" type="radio" value="blue"> Blue
-                          <input ng-model="reviewCtrl.review.color" type="radio" value="Green"> Green
-                      </fieldset>
-                      <fieldset class="form-group">
-                          <input ng-model="reviewCtrl.review.terms" type="checkbox"> I agree with terms
-                      </fieldset>-->
-                      <div> reviewForm is {{ reviewForm.$valid }}</div>
-                      <fieldset class="form-group">
-                          <input type="submit" value="Submit" class="btn btn-default" >
-                      </fieldset>
-                  </form>
-              </div>
+            <div class="ch-form-row">
+              <label  for="sltQtd">Quantity:</label>
+              <select class="" id="sltQtd" name="sltQtd">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
             </div>
 
-        </section>
-      </form>
+            <div class="ch-form-row">
+              <label for="sltPay">Payments:</label>
+              <select class="" id="sltPay" name="sltPay">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+
+            <div class="ch-form-row buttons">
+
+              <button ng-hide="product.soldOut" class="ch-btn"> Buy</button>
+              <button ng-show="product.soldOut" class="ch-btn-disabled">Soud Out</button>
+
+            </div>
+
+          </fieldset>
+
+          <fieldset>
+            <legend>More Images</legend>
+            <ul class="image-list ch-form-row">
+              <li>
+                <a href="#"><i class="ch-icon-caret-left ch-icon-x-large"></i></a>
+              </li>
+              <li  ng-repeat="image in  product.images ">
+                <a href ng-click="" ><img ng-src="{{ image.thumb }}" alt="image" width="100"></a>
+              </li>
+              <li>
+                <a href="#"><i class="ch-icon-caret-right ch-icon-x-large"></i></a>
+              </li>
+            </ul>
+          </fieldset>
+        </form>
+      </aside>
+
+
+      <section ng-controller="PanelController as panel" class="ch-tabs">
+          <ul class="ch-tabs-triggers" >
+              <li ng-class="{ active:panel.isSelected(1) }">
+                  <a href ng-click="panel.selectTab(1)" class="ch-tab">Questions</a>
+              </li>
+              <li ng-class="{ active:panel.isSelected(2) }">
+                  <a href ng-click="panel.selectTab(2)" class="ch-tab">Description</a>
+              </li>
+
+          </ul>
+          <div class="ch-box-lite">
+            <div class="panel" ng-show="panel.isSelected(2)">
+                <h4>Description</h4>
+                <p>{{ product.description }}</p>
+            </div>
+
+            <div class="panel" ng-show="panel.isSelected(1)">
+                <h4>Reviews</h4>
+                <blockquote ng-repeat="review in product.reviews">
+                    <cite>{{ review.author }}</cite>
+                    <p  class="ch-box-ok">
+                      {{ review.body }}
+                    </p>
+                </blockquote>
+
+                <form name="reviewForm" class="ch-form" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+                    <blockquote >
+                        <cite>{{ reviewCtrl.review.author }}</cite>
+                        <p class="ch-box-info">
+                          {{ reviewCtrl.review.body }}
+                        </p>
+                    </blockquote>
+
+                    <fieldset class="form-group">
+                      <label for="">Name:</label>
+                      <input type="text" ng-model="reviewCtrl.review.author" placeholder="" required />
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                      <label for="">Question: </label>
+                      <textarea ng-model="reviewCtrl.review.body" required></textarea>
+                    </fieldset>
+
+
+                    <div> reviewForm is {{ reviewForm.$valid }}</div>
+                    <fieldset class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-default" >
+                    </fieldset>
+                </form>
+            </div>
+          </div>
+
+      </section>
     </li>
   </ul>
 

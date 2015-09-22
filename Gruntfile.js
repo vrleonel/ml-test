@@ -170,7 +170,7 @@ module.exports = function (grunt) {
                 options: {
                     port: 3040,
                     watchTask: true,
-                    startPath: '/ui.html',
+                    startPath: '/index.html',
                     server: {
                         baseDir: [
                             // base path for views and demo assets

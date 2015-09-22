@@ -2972,4 +2972,34 @@ dl.ch-list dd {
   border-color: #78FA89;
 }
 
+.list-group-item {
+  margin: 10px;
+}
+.list-group-item h2 {
+  color: #330000;
+  font-size: 30px;
+}
+.list-group-item legend {
+  padding: 0;
+}
+.list-group-item label {
+  display: inline-block;
+  width: 80px;
+}
+.list-group-item picture {
+  display: inline-block;
+}
+.list-group-item aside {
+  display: inline-block;
+  vertical-align: top;
+}
+.list-group-item .buttons {
+  text-align: center;
+}
+.list-group-item .image-list li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
 /*# sourceMappingURL=chico.css.map */

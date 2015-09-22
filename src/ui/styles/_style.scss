@@ -5,3 +5,42 @@
 .ng-valid.ng-dirty{
     border-color: #78FA89;
 }
+
+.list-group-item{
+  margin: 10px;
+  h2 {
+    color: #330000;
+    font-size: 30px;
+  }
+
+  legend {
+    padding: 0;
+  }
+
+  label{
+    display: inline-block;
+    width: 80px;
+  }
+
+  picture{
+    display: inline-block;
+  }
+
+  aside{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .buttons {
+    text-align: center;
+  }
+
+  .image-list {
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+  }
+
+}
